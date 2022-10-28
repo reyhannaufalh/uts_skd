@@ -11,7 +11,7 @@ if ($_POST) {
         $_SESSION['lastname'] = $result['lastname'];
         $_SESSION['email'] = $result['email'];
         $_SESSION['password'] = $result['password'];
-        header("location:../app/result.php");
+        header("location:../index.php");
     }
 }
 ?>

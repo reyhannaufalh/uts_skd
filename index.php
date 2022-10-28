@@ -1,3 +1,8 @@
+<?php
+(@include('app/koneksi.php')) or die('Tidak bisa terkoneksi ke database');
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +25,11 @@
     <div class="main-container">
         <nav>
             <h1 id="nav-title">Kelompok 5 <span id="SKD">SKD</span></h1>
+            <?php if (!isset($_SESSION)) { ?>
             <a href="view/login.php" id="btn-login">Login</a>
+            <?php } else { ?>
+            <a href="view/login.php" id="btn-logout">Logout</a>
+            <?php } ?>
         </nav>
         <main class="landing-page">
             <div class="main main-1">
