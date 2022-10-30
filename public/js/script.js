@@ -12,7 +12,6 @@ const radioEncrypt = document.getElementById("en");
 radioDecrypt.addEventListener("change", function () {
   console.log("change Radio Decrypt");
   if (this.checked) {
-    main[0].style.flexDirection = "row-reverse";
     // plain.style.display = "none";
     // cipher.style.display = "block";
     mode[1].classList.add("active");
@@ -26,7 +25,6 @@ radioEncrypt.addEventListener("change", function () {
   if (this.checked) {
     // cipher.style.display = "none";
     // plain.style.display = "block";
-    main[0].style.flexDirection = "row";
     mode[1].classList.remove("active");
     mode[0].classList.add("active");
   }
