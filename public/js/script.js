@@ -5,6 +5,7 @@ const main = document.getElementsByClassName("landing-page");
 const cipher = document.getElementById("cipher");
 const plain = document.getElementById("plain");
 const title = document.getElementById("main-title");
+const select = document.getElementById("hash");
 
 const radioDecrypt = document.getElementById("de");
 const radioEncrypt = document.getElementById("en");
@@ -27,6 +28,15 @@ radioEncrypt.addEventListener("change", function () {
     // plain.style.display = "block";
     mode[1].classList.remove("active");
     mode[0].classList.add("active");
+  }
+});
+
+
+select.addEventListener("change", function () {
+  console.log("change Selected hash");
+  console.log(this.selected);
+  if(this.value != 0) {
+    this.form.submit();
   }
 });
 

@@ -43,7 +43,7 @@ if (isset($_GET['hash'])) {
         <main class="landing-page">
             <div class="main main-2">
                 <form action="" method="get">
-                    <select name="hash" id="" class="select-tipe">
+                    <select name="hash" id="hash" class="select-tipe">
                         <option value="CC" <?= ($tipe == 'CC') ? 'selected' : ''; ?>>Caesar Chiper</option>
                         <option value="VC" <?= ($tipe == 'VC') ? 'selected' : ''; ?>>VigenereChiper</option>
                         <option value="AES-128-CBC" <?= ($tipe == 'AES-128-CBC') ? 'selected' : ''; ?>>AES-128-CBC
@@ -57,8 +57,6 @@ if (isset($_GET['hash'])) {
                         <option value="RSA" <?= ($tipe == 'RSA') ? 'selected' : ''; ?>>RSA</option>
                         <option value="RC4" <?= ($tipe == 'RC4') ? 'selected' : ''; ?>>RC4</option>
                     </select>
-
-                    <button type="submit" class="pilih">Pilih</button>
                 </form>
 
                 <div class="key">
