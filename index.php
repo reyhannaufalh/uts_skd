@@ -34,16 +34,16 @@ if (isset($_GET['hash'])) {
     <div class="main-container">
         <nav>
             <h1 id="nav-title">Kelompok 5 <span id="SKD">SKD</span></h1>
-            <?php if (!isset($_SESSION)) { ?>
+            <?php if (!isset($_SESSION['firstname'])) { ?>
             <a href="view/login.php" id="btn-login">Login</a>
             <?php } else { ?>
-            <a href="view/login.php" id="btn-logout">Logout</a>
+            <a href="app/logout.php" id="btn-logout">Logout</a>
             <?php } ?>
         </nav>
         <main class="landing-page">
             <div class="main main-2">
                 <form action="" method="get">
-                    <select name="hash" id="">
+                    <select name="hash" id="" class="select-tipe">
                         <option value="CC" <?= ($tipe == 'CC') ? 'selected' : ''; ?>>Caesar Chiper</option>
                         <option value="VC" <?= ($tipe == 'VC') ? 'selected' : ''; ?>>VigenereChiper</option>
                         <option value="AES-128-CBC" <?= ($tipe == 'AES-128-CBC') ? 'selected' : ''; ?>>AES-128-CBC
@@ -58,7 +58,7 @@ if (isset($_GET['hash'])) {
                         <option value="RC4" <?= ($tipe == 'RC4') ? 'selected' : ''; ?>>RC4</option>
                     </select>
 
-                    <button type="submit">Pilih</button>
+                    <button type="submit" class="pilih">Pilih</button>
                 </form>
 
                 <div class="key">
@@ -93,13 +93,13 @@ if (isset($_GET['hash'])) {
                                         $aes->Chiper('aes-128-cbc');
                                     ?>
                                 <tr>
-                                    <td>Key</td>
+                                    <td id="td-title">Key</td>
                                     <td>
                                         <textarea name="key" rows="4" cols="50"><?= $aes->getKey(); ?></textarea>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Iv</td>
+                                    <td id="td-title">Iv</td>
                                     <td>
                                         <textarea name="iv" rows="4" cols="50"><?= $aes->getIv(); ?></textarea>
                                     </td>
@@ -111,13 +111,13 @@ if (isset($_GET['hash'])) {
                                         $aes->Chiper('aes-256-cbc');
                                     ?>
                                 <tr>
-                                    <td>Key</td>
+                                    <td id="td-title">Key</td>
                                     <td>
                                         <textarea name="key" rows="4" cols="50"><?= $aes->getKey(); ?></textarea>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Iv</td>
+                                    <td id="td-title">Iv</td>
                                     <td>
                                         <textarea name="iv" rows="4" cols="50"><?= $aes->getIv(); ?></textarea>
                                     </td>
@@ -129,13 +129,13 @@ if (isset($_GET['hash'])) {
                                         $aes->Chiper('aes-128-ctr');
                                     ?>
                                 <tr>
-                                    <td>Key</td>
+                                    <td id="td-title">Key</td>
                                     <td>
                                         <textarea name="key" rows="4" cols="50"><?= $aes->getKey(); ?></textarea>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Iv</td>
+                                    <td id="td-title">Iv</td>
                                     <td>
                                         <textarea name="iv" rows="4" cols="50"><?= $aes->getIv(); ?></textarea>
                                     </td>
@@ -147,13 +147,13 @@ if (isset($_GET['hash'])) {
                                         $aes->Chiper('aes-256-ctr');
                                     ?>
                                 <tr>
-                                    <td>Key</td>
+                                    <td id="td-title">Key</td>
                                     <td>
                                         <textarea name="key" rows="4" cols="50"><?= $aes->getKey(); ?></textarea>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Iv</td>
+                                    <td id="td-title">Iv</td>
                                     <td>
                                         <textarea name="iv" rows="4" cols="50"><?= $aes->getIv(); ?></textarea>
                                     </td>
@@ -165,23 +165,23 @@ if (isset($_GET['hash'])) {
                                         $rsa->generateKey();
                                     ?>
                                 <tr>
-                                    <td>Public key</td>
+                                    <td id="td-title">Public key</td>
                                     <td>
                                         <textarea name="public_key" rows="4"
                                             cols="50"><?= $rsa->getPublicKey(); ?></textarea>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Private key</td>
+                                    <td id="td-title">Private key</td>
                                     <td>
                                         <textarea name="private_key" rows="4"
                                             cols="50"><?= $rsa->getPrivateKey(); ?></textarea>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Key yg digunakan</td>
+                                    <td id="td-title">Key yang digunakan</td>
                                     <td>
-                                        <select name="selected_key">
+                                        <select name="selected_key" id="select-key">
                                             <option value="public">Public key</option>
                                             <option value="private">Private key</option>
                                         </select>
@@ -232,7 +232,7 @@ if (isset($_GET['hash'])) {
                 <div class="main-header">
                     <h2>Output Text</h2>
                 </div>
-                <p>
+                <div class="output">
                     <?php
                     if (isset($_POST['hash'])) {
                         switch ($_POST['hash']) {
@@ -353,7 +353,7 @@ if (isset($_GET['hash'])) {
                         echo $output;
                     }
                     ?>
-                </p>
+                </div>
             </div>
         </main>
     </div>
