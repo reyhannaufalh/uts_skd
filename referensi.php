@@ -231,7 +231,7 @@ if (isset($_GET['hash']))
                     $aes1->setInput($_POST['input']);
                     $aes1->Chiper($_POST['hash']);
                     $aes1->setKey($_POST['key']);
-                    $aes1->setIv($aes->getIv());
+                    $aes1->setIv($_POST['iv']);
                     switch($_POST['tipe'])
                     {
                         case 'enkripsi' :
@@ -247,7 +247,7 @@ if (isset($_GET['hash']))
                     $aes1->setInput($_POST['input']);
                     $aes1->Chiper($_POST['hash']);
                     $aes1->setKey($_POST['key']);
-                    $aes1->setIv($aes->getIv());
+                    $aes1->setIv($_POST['iv']);
                     switch($_POST['tipe'])
                     {
                         case 'enkripsi' :
@@ -263,7 +263,7 @@ if (isset($_GET['hash']))
                     $aes1->setInput($_POST['input']);
                     $aes1->Chiper($_POST['hash']);
                     $aes1->setKey($_POST['key']);
-                    $aes1->setIv($aes->getIv());
+                    $aes1->setIv($_POST['iv']);
                     switch($_POST['tipe'])
                     {
                         case 'enkripsi' :
@@ -279,7 +279,7 @@ if (isset($_GET['hash']))
                     $aes1->setInput($_POST['input']);
                     $aes1->Chiper($_POST['hash']);
                     $aes1->setKey($_POST['key']);
-                    $aes1->setIv($aes->getIv());
+                    $aes1->setIv($_POST['iv']);
                     switch($_POST['tipe'])
                     {
                         case 'enkripsi' :
