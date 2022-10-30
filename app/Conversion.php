@@ -38,10 +38,6 @@ class CaesarChiper
     {
         $this->key = $key;
     }
-    public function getInput()
-    {
-        return $this->input;
-    }
     public function getKey()
     {
         return $this->key;
@@ -114,10 +110,6 @@ class VigenereChiper
     {
         $this->key = $key;
     }
-    public function getInput()
-    {
-        return $this->input;
-    }
     public function getKey()
     {
         return $this->key;
@@ -168,10 +160,6 @@ class AES
     public function getChiper()
     {
         return $this->chiper;
-    }
-    public function getInput()
-    {
-        return $this->input;
     }
     public function getKey()
     {
@@ -299,10 +287,11 @@ class RC4
     public function Enkrip()
     {
         $this->output = $this->Chiper();
-        return $this->output;
+        return base64_encode($this->output);
     }
     public function Dekrip()
     {
+        $this->input = base64_decode($this->input);
         $this->output = $this->Chiper();
         return $this->output;
     }
@@ -313,10 +302,6 @@ class RC4
     public function setKey($key)
     {
         $this->key = $key;
-    }
-    public function getInput()
-    {
-        return $this->input;
     }
     public function getKey()
     {
