@@ -263,62 +263,62 @@ if (isset($_GET['hash'])) {
                                 }
                                 break;
                             case 'AES-128-CBC':
-                                $aes1 = new AES();
-                                $aes1->setInput($_POST['input']);
-                                $aes1->Chiper($_POST['hash']);
-                                $aes1->setKey($_POST['key']);
-                                $aes1->setIv($aes->getIv());
+                                $aes = new AES();
+                                $aes->setInput($_POST['input']);
+                                $aes->Chiper($_POST['hash']);
+                                $aes->setKey($_POST['key']);
+                                $aes->setIv($_POST['iv']);
                                 switch ($_POST['tipe']) {
                                     case 'enkripsi':
-                                        $output = $aes1->Enkrip();
+                                        $output = $aes->Enkrip();
                                         break;
                                     case 'dekripsi':
-                                        $output = $aes1->Dekrip();
+                                        $output = $aes->Dekrip();
                                         break;
                                 }
                                 break;
                             case 'AES-256-CBC':
-                                $aes1 = new AES();
-                                $aes1->setInput($_POST['input']);
-                                $aes1->Chiper($_POST['hash']);
-                                $aes1->setKey($_POST['key']);
-                                $aes1->setIv($aes->getIv());
+                                $aes = new AES();
+                                $aes->setInput($_POST['input']);
+                                $aes->Chiper($_POST['hash']);
+                                $aes->setKey($_POST['key']);
+                                $aes->setIv($_POST['iv']);
                                 switch ($_POST['tipe']) {
                                     case 'enkripsi':
-                                        $output = $aes1->Enkrip();
+                                        $output = $aes->Enkrip();
                                         break;
                                     case 'dekripsi':
-                                        $output = $aes1->Dekrip();
+                                        $output = $aes->Dekrip();
                                         break;
                                 }
                                 break;
                             case 'AES-128-CTR':
-                                $aes1 = new AES();
-                                $aes1->setInput($_POST['input']);
-                                $aes1->Chiper($_POST['hash']);
-                                $aes1->setKey($_POST['key']);
-                                $aes1->setIv($aes->getIv());
+                                $aes = new AES();
+                                $aes->setInput($_POST['input']);
+                                $aes->Chiper($_POST['hash']);
+                                $aes->setKey($_POST['key']);
+                                $aes->setIv($_POST['iv']);
                                 switch ($_POST['tipe']) {
                                     case 'enkripsi':
-                                        $output = $aes1->Enkrip();
+                                        $output = $aes->Enkrip();
                                         break;
                                     case 'dekripsi':
-                                        $output = $aes1->Dekrip();
+                                        $output = $aes->Dekrip();
                                         break;
                                 }
                                 break;
                             case 'AES-256-CTR':
-                                $aes1 = new AES();
-                                $aes1->setInput($_POST['input']);
-                                $aes1->Chiper($_POST['hash']);
-                                $aes1->setKey($_POST['key']);
-                                $aes1->setIv($aes->getIv());
+                                $aes = new AES();
+                                $aes->setInput($_POST['input']);
+                                $aes->Chiper($_POST['hash']);
+                                $aes->setKey($_POST['key']);
+                                $aes->setIv($_POST['iv']);
                                 switch ($_POST['tipe']) {
                                     case 'enkripsi':
-                                        $output = $aes1->Enkrip();
+                                        $output = $aes->Enkrip();
                                         break;
                                     case 'dekripsi':
-                                        $output = $aes1->Dekrip();
+                                        $output = $aes->Dekrip();
                                         break;
                                 }
                                 break;
@@ -329,10 +329,10 @@ if (isset($_GET['hash'])) {
                                 $rsa->setPrivateKey($_POST['private_key']);
                                 switch ($_POST['tipe']) {
                                     case 'enkripsi':
-                                        $output = $aes1->Enkrip($_POST['selected_key']);
+                                        $output = $rsa->Enkrip($_POST['selected_key']);
                                         break;
                                     case 'dekripsi':
-                                        $output = $aes1->Dekrip($_POST['selected_key']);
+                                        $output = $rsa->Dekrip($_POST['selected_key']);
                                         break;
                                 }
                                 break;
