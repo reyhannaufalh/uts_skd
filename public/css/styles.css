@@ -44,6 +44,14 @@ select {
   border: 2px solid #42bfdd;
 }
 
+table {
+    width: 100%;
+}
+
+#SKD {
+    color: #1d97b6;
+}
+
 .switch-mode {
   display: flex;
   justify-content: space-between;
@@ -54,11 +62,11 @@ select {
 }
 
 .main-2 select {
-  margin-top: 1vh;
   border: none;
   color: #42bfdd;
   font-weight: bold;
-  font-size: 2vw;
+  font-size: 1.5vw;
+  width: 100%;
 }
 
 .main-2 option {
@@ -90,7 +98,7 @@ select {
   z-index: 100;
   top: 0;
   left: 0;
-  /* display: none; */
+  display: none;
 }
 
 .main {
@@ -102,6 +110,17 @@ select {
   box-shadow: 0px 12px 52px rgba(0, 99, 123, 0.1);
 }
 
+
+.pilih {
+    width: 100%;
+    background-color: #fff;
+    border: 2px solid #42bfdd;
+    color: #42bfdd;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 24px;
+}
+
 .main-1 {
     order:1;
 }
@@ -109,8 +128,14 @@ select {
 .main-2 {
     order:2;
 }
+
 .main-3 {
     order:3;
+}
+
+.output {
+    inline-size: 300px;
+    overflow-wrap: break-word; 
 }
 
 .main-page nav {
@@ -126,9 +151,30 @@ select {
   padding-bottom: 24px;
 }
 
-.main-input textarea {
+.main-header h2 {
+    color: #42bfdd;
+}
+
+textarea {
   border: none;
   width: 100%;
+  font-family: Outfit, sans-serif;
+  font-size: 16px;
+}
+
+tr td {
+    width: 100%;
+}
+
+tr td textarea {
+    width: 100%;
+    border-radius: 4px;
+    padding: 5px 8px;
+    border: 2px solid #42bfdd;
+}
+
+tr td input[type="text"] {
+    width: 100%;
 }
 
 body {
@@ -184,6 +230,10 @@ body {
   flex-direction: column;
   gap: 2vh;
   width: 100%;
+}
+
+.register {
+    text-align: center;
 }
 
 #btn-login {
@@ -273,6 +323,16 @@ button {
 
 .left img {
   width: 13vw;
+}
+
+tr td {
+    display: block;
+}
+
+#td-title {
+    font-weight: 600;
+    color: #42bfdd;
+    margin-bottom: 8px;
 }
 
 @media (max-width: 767.98px) {
