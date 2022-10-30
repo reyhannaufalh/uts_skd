@@ -159,11 +159,11 @@ class AES
     }
     public function setKey($key)
     {
-        $this->key = $key;
+        $this->key = base64_decode($key);
     }
     public function setIv($iv)
     {
-        $this->iv = $iv;
+        $this->iv = base64_decode($iv);
     }
     public function getChiper()
     {
@@ -175,11 +175,11 @@ class AES
     }
     public function getKey()
     {
-        return $this->key;
+        return base64_encode($this->key);
     }
     public function getIv()
     {
-        return $this->iv;
+        return base64_encode($this->iv);
     }
     public function getOutput()
     {
@@ -206,7 +206,7 @@ class RSA
                 openssl_private_encrypt($this->input, $output,$this->private_key);
             break;
         }
-        $this->output = $output;
+        $this->output = base64_encode($output);
         return $this->output;
     }
     public function Dekrip($tipe) //"public","private"
@@ -214,10 +214,10 @@ class RSA
         switch($tipe)
         {
             case "public":
-                openssl_public_decrypt($this->input, $output, $this->public_key);
+                openssl_public_decrypt(base64_decode($this->input), $output, $this->public_key);
             break;
             case "private":
-                openssl_private_decrypt($this->input, $output, $this->private_key);
+                openssl_private_decrypt(base64_decode($this->input), $output, $this->private_key);
             break;
         }
         $this->output = $output;
