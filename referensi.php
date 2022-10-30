@@ -298,10 +298,10 @@ if (isset($_GET['hash']))
                     switch($_POST['tipe'])
                     {
                         case 'enkripsi' :
-                            $output = $aes1->Enkrip($_POST['selected_key']);
+                            $output = $rsa->Enkrip($_POST['selected_key']);
                         break;
                         case 'dekripsi' :
-                            $output = $aes1->Dekrip($_POST['selected_key']);
+                            $output = $rsa->Dekrip($_POST['selected_key']);
                         break;
                     }
                     break;

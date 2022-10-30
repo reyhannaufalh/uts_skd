@@ -1,0 +1,6 @@
+# file required to support openssl
+
+HOME     = .
+RANDFILE = $ENV::HOME/.rnd
+
+[ v3_ca ]

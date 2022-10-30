@@ -224,12 +224,19 @@ class RSA
         return $this->output;
     }
     public function generateKey() {
-        $main_key = openssl_pkey_new(); //OpenSSLA-array
-    
+        $config['config'] = dirname(__FILE__).'/openssl.cnf';
+        $main_key = openssl_pkey_new(array(
+            'private_key_bits'=>1024,
+            'private_key_type'=> OPENSSL_KEYTYPE_RSA,
+        ) + $config); //OpenSSLA-array
+
         $private_SSLA = openssl_pkey_get_private($main_key); //OpenSSLA-array
-        openssl_pkey_export($private_SSLA, $privkey); //string
+        openssl_pkey_export($private_SSLA, $privkey,null, array(
+            'private_key_bits'=>1024,
+            'private_key_type'=> OPENSSL_KEYTYPE_RSA,
+        ) + $config); //string
     
-        $this->private_key = $privkey;
+        $this->private_key = $privkey; //string
     
         $this->public_key = openssl_pkey_get_details($private_SSLA)['key']; //string
       }
