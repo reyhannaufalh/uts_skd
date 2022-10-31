@@ -10,6 +10,11 @@ if (isset($_GET['hash'])) {
 } else {
     $tipe = 'CC';
 }
+if (isset($_POST['tipe'])) {
+    $mode = $_POST['tipe'];
+} else {
+    $mode = 'enkripsi';
+}
 
 ?>
 <!DOCTYPE html>
@@ -67,152 +72,162 @@ if (isset($_GET['hash'])) {
                                 <?php
                                 switch ($tipe) {
                                     case 'CC':
-                                        $hash = (isset($_POST['hash']))? $_POST['key']: '';
-                                        ?>
-                                        <tr>
-                                            <td>Key</td>
-                                            <td>
-                                                <input type="number" name="key" value="<?=$hash?>">
-                                            </td>
-                                        </tr>
-                                        <?php
-                                    break;
+                                        $hash = (isset($_POST['hash'])) ? $_POST['key'] : '';
+                                ?>
+                                <tr>
+                                    <td>Key</td>
+                                    <td>
+                                        <input type="number" name="key" value="<?= $hash ?>">
+                                    </td>
+                                </tr>
+                                <?php
+                                        break;
                                     case 'VC':
-                                        $hash = (isset($_POST['hash']))? $_POST['key']: '';
-                                        ?>
-                                        <tr>
-                                            <td>Key</td>
-                                            <td>
-                                                <input type="text" name="key" value="<?=$hash?>">
-                                            </td>
-                                        </tr>
-                                        <?php
-                                    break;
+                                        $hash = (isset($_POST['hash'])) ? $_POST['key'] : '';
+                                    ?>
+                                <tr>
+                                    <td>Key</td>
+                                    <td>
+                                        <input type="text" name="key" value="<?= $hash ?>">
+                                    </td>
+                                </tr>
+                                <?php
+                                        break;
                                     case 'AES-128-CBC':
                                         $aes = new AES();
                                         $aes->Chiper('aes-128-cbc');
-                                        ?>
-                                        <tr>
-                                            <td id="td-title">Key</td>
-                                            <td>
-                                                <textarea name="key" rows="4" cols="50"><?= (isset($_POST['hash']))?$_POST['key']:$aes->getKey(); ?></textarea>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="td-title">Iv</td>
-                                            <td>
-                                                <textarea name="iv" rows="4" cols="50"><?= (isset($_POST['hash']))?$_POST['iv']:$aes->getIv(); ?></textarea>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                    break;
+                                    ?>
+                                <tr>
+                                    <td id="td-title">Key</td>
+                                    <td>
+                                        <textarea name="key" rows="4"
+                                            cols="50"><?= (isset($_POST['hash'])) ? $_POST['key'] : $aes->getKey(); ?></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="td-title">Iv</td>
+                                    <td>
+                                        <textarea name="iv" rows="4"
+                                            cols="50"><?= (isset($_POST['hash'])) ? $_POST['iv'] : $aes->getIv(); ?></textarea>
+                                    </td>
+                                </tr>
+                                <?php
+                                        break;
                                     case 'AES-256-CBC':
                                         $aes = new AES();
                                         $aes->Chiper('aes-256-cbc');
-                                        ?>
-                                        <tr>
-                                            <td id="td-title">Key</td>
-                                            <td>
-                                                <textarea name="key" rows="4" cols="50"><?= (isset($_POST['hash']))?$_POST['key']:$aes->getKey(); ?></textarea>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="td-title">Iv</td>
-                                            <td>
-                                                <textarea name="iv" rows="4" cols="50"><?= (isset($_POST['hash']))?$_POST['iv']:$aes->getIv(); ?></textarea>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                    break;
+                                    ?>
+                                <tr>
+                                    <td id="td-title">Key</td>
+                                    <td>
+                                        <textarea name="key" rows="4"
+                                            cols="50"><?= (isset($_POST['hash'])) ? $_POST['key'] : $aes->getKey(); ?></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="td-title">Iv</td>
+                                    <td>
+                                        <textarea name="iv" rows="4"
+                                            cols="50"><?= (isset($_POST['hash'])) ? $_POST['iv'] : $aes->getIv(); ?></textarea>
+                                    </td>
+                                </tr>
+                                <?php
+                                        break;
                                     case 'AES-128-CTR':
                                         $aes = new AES();
                                         $aes->Chiper('aes-128-ctr');
-                                        ?>
-                                        <tr>
-                                            <td id="td-title">Key</td>
-                                            <td>
-                                                <textarea name="key" rows="4" cols="50"><?= (isset($_POST['hash']))?$_POST['key']:$aes->getKey(); ?></textarea>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="td-title">Iv</td>
-                                            <td>
-                                                <textarea name="iv" rows="4" cols="50"><?= (isset($_POST['hash']))?$_POST['iv']:$aes->getIv(); ?></textarea>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                    break;
+                                    ?>
+                                <tr>
+                                    <td id="td-title">Key</td>
+                                    <td>
+                                        <textarea name="key" rows="4"
+                                            cols="50"><?= (isset($_POST['hash'])) ? $_POST['key'] : $aes->getKey(); ?></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="td-title">Iv</td>
+                                    <td>
+                                        <textarea name="iv" rows="4"
+                                            cols="50"><?= (isset($_POST['hash'])) ? $_POST['iv'] : $aes->getIv(); ?></textarea>
+                                    </td>
+                                </tr>
+                                <?php
+                                        break;
                                     case 'AES-256-CTR':
                                         $aes = new AES();
                                         $aes->Chiper('aes-256-ctr');
-                                        ?>
-                                        <tr>
-                                            <td id="td-title">Key</td>
-                                            <td>
-                                                <textarea name="key" rows="4" cols="50"><?= (isset($_POST['hash']))?$_POST['key']:$aes->getKey(); ?></textarea>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="td-title">Iv</td>
-                                            <td>
-                                                <textarea name="iv" rows="4" cols="50"><?= (isset($_POST['hash']))?$_POST['iv']:$aes->getIv(); ?></textarea>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                    break;
+                                    ?>
+                                <tr>
+                                    <td id="td-title">Key</td>
+                                    <td>
+                                        <textarea name="key" rows="4"
+                                            cols="50"><?= (isset($_POST['hash'])) ? $_POST['key'] : $aes->getKey(); ?></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="td-title">Iv</td>
+                                    <td>
+                                        <textarea name="iv" rows="4"
+                                            cols="50"><?= (isset($_POST['hash'])) ? $_POST['iv'] : $aes->getIv(); ?></textarea>
+                                    </td>
+                                </tr>
+                                <?php
+                                        break;
                                     case 'RSA':
                                         $rsa = new RSA();
                                         $rsa->generateKey();
-                                        ?>
-                                        <tr>
-                                            <td id="td-title">Public key</td>
-                                            <td>
-                                                <textarea name="public_key" rows="4"
-                                                    cols="50"><?= (isset($_POST['hash']))?$_POST['public_key']:$rsa->getPublicKey(); ?></textarea>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="td-title">Private key</td>
-                                            <td>
-                                                <textarea name="private_key" rows="4"
-                                                    cols="50"><?= (isset($_POST['hash']))?$_POST['private_key']: $rsa->getPrivateKey(); ?></textarea>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="td-title">Key yang digunakan</td>
-                                            <td>
-                                                <select name="selected_key" id="select-key">
-                                                    <option value="public">Public key</option>
-                                                    <option value="private">Private key</option>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                    break;
+                                    ?>
+                                <tr>
+                                    <td id="td-title">Public key</td>
+                                    <td>
+                                        <textarea name="public_key" rows="4"
+                                            cols="50"><?= (isset($_POST['hash'])) ? $_POST['public_key'] : $rsa->getPublicKey(); ?></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="td-title">Private key</td>
+                                    <td>
+                                        <textarea name="private_key" rows="4"
+                                            cols="50"><?= (isset($_POST['hash'])) ? $_POST['private_key'] : $rsa->getPrivateKey(); ?></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="td-title">Key yang digunakan</td>
+                                    <td>
+                                        <select name="selected_key" id="select-key">
+                                            <option value="public">Public key</option>
+                                            <option value="private">Private key</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <?php
+                                        break;
                                     case 'RC4':
-                                        $key = (isset($_POST['hash']))? $_POST['key']: '';
-                                        ?>
-                                        <tr>
-                                            <td>Key</td>
-                                            <td>
-                                                <input type="text" name="key" value="<?=$key?>">
-                                            </td>
-                                        </tr>
-                                        <?php
-                                    break;
+                                        $key = (isset($_POST['hash'])) ? $_POST['key'] : '';
+                                    ?>
+                                <tr>
+                                    <td>Key</td>
+                                    <td>
+                                        <input type="text" name="key" value="<?= $key ?>">
+                                    </td>
+                                </tr>
+                                <?php
+                                        break;
                                 }
                                 ?>
                             </tbody>
                         </table>
                 </div>
                 <div class="switch-mode">
-                    <div class="mode active">
+                    <div class="mode <?= ($mode == 'enkripsi') ? 'active' : ''; ?>">
                         <label for="en">Enkripsi</label>
-                        <input type="radio" id="en" name="tipe" value="enkripsi" checked>
+                        <input type="radio" id="en" name="tipe" value="enkripsi"
+                            <?= ($mode == 'enkripsi') ? 'checked' : ''; ?>>
                     </div>
-                    <div class="mode">
+                    <div class="mode <?= ($mode == 'dekripsi') ? 'active' : ''; ?>">
                         <label for="de">Dekripsi</label>
-                        <input type="radio" id="de" name="tipe" value="dekripsi">
+                        <input type="radio" id="de" name="tipe" value="dekripsi"
+                            <?= ($mode == 'dekripsi') ? 'checked' : ''; ?>>
                     </div>
                 </div>
                 <button class="btn-main" name="submit">Konversi</button>
@@ -224,7 +239,7 @@ if (isset($_GET['hash'])) {
                 </div>
                 <div class="main-body">
                     <textarea name="input" id="plain" cols="30"
-                        rows="10"><?= (isset($_POST['hash']))? $_POST['input'] : "Lorem ipsum dolor sit amet, consectetur adipisicing elit."?></textarea>
+                        rows="10"><?= (isset($_POST['hash'])) ? $_POST['input'] : "Lorem ipsum dolor sit amet, consectetur adipisicing elit." ?></textarea>
                 </div>
                 </form>
             </div>
@@ -352,11 +367,10 @@ if (isset($_GET['hash'])) {
                                 break;
                         }
                     } else {
-                        $output ="";
+                        $output = "";
                     }
                     ?>
-                    <textarea id="plain" cols="30"
-                        rows="10"><?= $output ?></textarea>
+                    <textarea id="plain" cols="30" rows="10"><?= $output ?></textarea>
                 </div>
             </div>
         </main>
